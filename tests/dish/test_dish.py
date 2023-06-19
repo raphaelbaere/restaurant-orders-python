@@ -29,6 +29,7 @@ def test_dish():
     dish.add_ingredient_dependency(presunto, 2)
     assert dish.recipe.get(queijo) == 2
     assert dish.recipe.get(presunto) == 2
+    assert dish.get_ingredients() == {queijo, presunto}
 
     assert dish.get_restrictions() == queijo.restrictions.union(
         presunto.restrictions
