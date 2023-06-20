@@ -30,11 +30,15 @@ class MenuBuilder:
         list_of_dicts = []
 
         for each_dich in self.menu_data.dishes:
-            dict_item = {'dish_name': each_dich.name, 'ingredients': each_dich.get_ingredients(), 'price': each_dich.price, 'restrictions': each_dich.get_restrictions()}
+            dict_item = {
+                "dish_name": each_dich.name,
+                "ingredients": each_dich.get_ingredients(),
+                "price": each_dich.price,
+                "restrictions": each_dich.get_restrictions(),
+            }
             list_of_dicts.append(dict_item)
 
-
         def filter_function(each_dich):
-            return restriction not in each_dich['restrictions']
-        
+            return restriction not in each_dich["restrictions"]
+
         return list(filter(filter_function, list_of_dicts))
